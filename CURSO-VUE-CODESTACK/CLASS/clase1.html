@@ -1,0 +1,44 @@
+<!-- 01 - Introducción a Vue: Inicializando Nuestra Primera Aplicación [Vue.js 3] -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        Nombre: {{nombre}} estamos en {{meses[0]}} del {{anio}}
+        
+    </div>
+    <hr>
+    <div id="app2">
+        Nombre: {{nombre}}
+        
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        //data,methods,props,mounted,created,computed,watch,destroyed
+         const holamundo ={
+            data(){
+                return{
+                    nombre: 'Tomas',
+                    anio: 2026,
+                    meses: ['Abril','Mayo']
+                }
+            }
+         }
+         const holamundo2 ={
+            data(){
+                return{
+                    nombre: 'Emiliano'
+                }
+            }
+         }         
+         Vue.createApp(holamundo).mount("#app")
+         Vue.createApp(holamundo2).mount("#app2")
+    </script>
+</body>
+</html>

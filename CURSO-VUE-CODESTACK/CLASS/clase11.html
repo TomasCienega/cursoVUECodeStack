@@ -1,0 +1,49 @@
+<!-- 11 - Visibilidad Condicional con v-show. Diferencia con v-if [Vue.js 3] -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- BOOSTRAP -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+     <!-- MATERIALIZE -->
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">  
+</head>
+<body>
+    
+    <div id="app" class="m-3">
+        <a href="#!" v-if="esAdministrador">Administración</a>
+        <img src="ikaros.jpg" height="200" v-if="mostrarImagen">
+        <img src="shion.jpg" height="200" v-show="mostrarImagen">
+    </div>
+
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+
+         const app ={
+            data(){
+                return{
+                    mostrarImagen: false,
+                    esAdministrador: false
+                }
+            },
+            methods: {
+                
+            },
+            mounted(){
+                
+            }
+         }       
+         var mountedApp = Vue.createApp(app).mount("#app")
+    </script>
+    <!-- BOOSTRAP -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+     <!-- MATERIALIZE -->
+     <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

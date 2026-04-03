@@ -1,0 +1,44 @@
+<!-- 03 - Binding de Atributos HTML con v-bind [Vue.js 3] -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div id="app">
+        
+        <label v-bind:title="titulo" v-bind:data-hola="titulo">Hola Mundo</label>
+        <hr>
+        <button v-on:click="mostrarImagen('shion.jpg')" class="btn btn-outline-primary">SHION</button>
+        <button v-on:click="mostrarImagen('ikaros.png')" class="btn btn-outline-secondary">IKAROS</button>
+        <hr>
+        <img v-bind:src="imagen">
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        //data,methods,props,mounted,created,computed,watch,destroyed
+         const app ={
+            data(){
+                return{
+                    titulo: 'Este es un titulo dinámico',
+                    imagen: ''
+
+                }
+            },methods:{
+                mostrarImagen(imagen){
+                    this.imagen = imagen;
+
+                }
+            }
+         }       
+         Vue.createApp(app).mount("#app")
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

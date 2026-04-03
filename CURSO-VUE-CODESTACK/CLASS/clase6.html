@@ -1,0 +1,92 @@
+<!-- 06 - Bucles Anidados con v-for, Obtener Índice, Bucles a Partir de Rangos [Vue.js 3] -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div id="app" class="m-3">
+        <ul>
+            <li v-for="(fruta, index) in frutasConID" :key="fruta.id" class="mb-2">
+                <strong>Indice: {{index}}</strong> | ID: {{fruta.id}} - {{fruta.nombre}}
+                
+                <ul v-if="fruta.paisesOrigen && fruta.paisesOrigen.length > 0">
+                    <li v-for="pais in fruta.paisesOrigen" :key="pais.idPais">
+                        {{pais.idPais}} - {{pais.pais}}
+                    </li>
+                </ul>
+                <span v-else class="text-muted small"> (Sin países registrados)</span>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        //data,methods,props,mounted,created,computed,watch,destroyed
+         const app ={
+            data(){
+                return{
+                    frutasConID: [
+                        {
+                            id:1,
+                            nombre: 'Melon',
+                            paisesOrigen: [
+                                {
+                                    idPais: 1,
+                                    pais: 'Guatemala'
+                                },
+                                {
+                                    idPais: 2,
+                                    pais: 'El Salvador'
+                                }
+                            ]
+                        },
+                        {
+                            id:2,
+                            nombre: 'Pera',
+                            paisesOrigen: [
+                                {
+                                    idPais: 3,
+                                    pais: 'Jalisco'
+                                },
+                                {
+                                    idPais: 4,
+                                    pais: 'Honduras'
+                                }
+                            ]                            
+                        },
+                        {
+                            id:3,
+                            nombre: 'Naranja',
+                            paisesOrigen: [
+                                {
+                                    idPais: 5,
+                                    pais: 'USA'
+                                },
+                                {
+                                    idPais: 6,
+                                    pais: 'El Congo'
+                                }
+                            ]                            
+                        },
+                        {
+                            id:4,
+                            nombre: 'Jicama',
+                            paisesOrigen: null
+                        }
+                    ]
+                }
+            },methods:{
+
+
+            }
+         }       
+         Vue.createApp(app).mount("#app")
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
